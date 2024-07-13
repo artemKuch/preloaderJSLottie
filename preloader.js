@@ -1,3 +1,4 @@
+// Створення та стилізація overlay
 const overlay = document.createElement('div');
 overlay.id = 'loader';
 overlay.style.cssText = `
@@ -13,6 +14,7 @@ overlay.style.cssText = `
     z-index: 999;
 `;
 
+// Створення та стилізація lottieContainer
 const lottieContainer = document.createElement('div');
 lottieContainer.id = 'lottieContainer';
 lottieContainer.style.cssText = `
@@ -24,26 +26,26 @@ lottieContainer.style.cssText = `
     left: 50%;
     transform: translate(-50%, -50%);
 `;
-lottieContainer.style.display = 'none';
 
+// Додавання елементів до документу
 document.body.appendChild(overlay);
 document.body.appendChild(lottieContainer);
 
+// Функція для приховування overlay та відображення анімації
 function hideOverlay() {
     overlay.style.display = 'none';
     lottieContainer.style.display = 'block';
-    // Substitua pela URL direta do seu arquivo JSON do Lottie.
+    // Замініть на пряму URL вашого JSON файлу Lottie.
     lottie.loadAnimation({
         container: lottieContainer,
-        renderer: 'svg', // ou 'canvas' se preferir
+        renderer: 'svg', // або 'canvas', якщо ви надаєте перевагу цьому
         loop: true,
         autoplay: true,
         path: 'https://lottie.host/28788995-255a-4740-8251-84f158586229/r3eQrIXpLN.json',
     });
 }
 
+// Подія, яка виконується при завантаженні документа
 document.addEventListener('DOMContentLoaded', () => {
     hideOverlay();
 });
-
-window.addEventListener('load');
